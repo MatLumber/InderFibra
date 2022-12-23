@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Claentwomistar.urls'
+ROOT_URLCONF = 'InderFibra.urls'
 
 TEMPLATES = [
     {
@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Claentwomistar.wsgi.application'
+WSGI_APPLICATION = 'InderFibra.wsgi.application'
 
 
 # Database
