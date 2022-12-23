@@ -1,0 +1,42 @@
+{% extends "Componentes/header.html" %}
+{% load static %}
+{% block links%}
+<link rel="stylesheet" href="{% static 'productos.css' %}">
+{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="header-img"></div>
+    <div class="title-text">
+        <h1>Dipositivos moviles disponibles</h1>
+    </div>
+    <div class="productos-box">
+        <div class="card-container">
+            {% for producto in productos %}
+            <div class="card-productos">
+                <img src="../static/imgProductos/{{producto.filename}}">
+                <h2>{{producto.Modelo}}</h2>
+                <h2 id="stock">Stock: {{producto.Stock}}</h2>
+                <h2 id="price">${{producto.Valor}}</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden", value="{{producto.id}}" name="producto">
+                    <button class="btnComprar">Comprar ahora</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+</body>
+
+</html>

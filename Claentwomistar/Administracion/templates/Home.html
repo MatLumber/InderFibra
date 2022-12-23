@@ -1,0 +1,108 @@
+{% extends "Componentes/header.html" %}
+{% load static %}
+{% block links%}
+<link rel="stylesheet" href="{% static 'admin.css' %}">
+{% endblock %}
+{% if user.admin %}
+{% block content %}
+<h2 id="Titulo">Gestionar usuarios</h2>
+<div class="Container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Activo</th>
+                <th scope="col">Admin</th>
+                <th scope="col">Ultima Conexión</th>
+                <th scope="col"></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Usuario in Usuarios %}
+            <form method="post">
+                {% csrf_token %}
+                <tr>
+                    <th scope="row">{{ Usuario.id }}</th>
+                    <td>{{ Usuario.username }}</td>
+                    <td>{{ Usuario.email }}</td>
+                    {% if Usuario.activo %}
+                    <td><input type="checkbox" checked name="activo" /></td>
+                    {% else %}
+                    <td><input type="checkbox" name="activo" /></td>
+                    {% endif %}
+                    {% if Usuario.admin %}
+                    <td><input type="checkbox" checked name="admin" /></td>
+                    {% else %}
+                    <td><input type="checkbox" name="admin" /></td>
+                    {% endif %}
+                    <td>{{ Usuario.last_login }}</td>
+                    <input type="hidden" value="{{ Usuario.id }}" name="Userid">
+                    <input type="hidden" value="Falasdsse" name="Elimnar_user" id="Elimnar_user">
+                    <td><button id="btnModif" type="submit">Editar</button></td>
+                    <td><a href="/EliminarUsuario/{{ Usuario.id }}"
+                            onclick="return confirm('¿Estas seguro de eliminar el usuario?')">Eliminar</a></td>
+                </tr>
+            </form>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="container-productos">
+        <h2 id="Titulo-productos">Producto más vendido</h2>
+        <div class="producto-vendido">
+            <h3>{{MaxVentas.Modelo}}</h3>
+        </div>
+        <div class="producto-stock">
+            <h2 id="Titulo-productos" class="titulo-stock">Productos con stock al limite</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Stock</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for a in limitStock %}
+                    <tr>
+                        <th><img id="imgMoviles" src="../static/imgProductos/{{a.filename}}"></th>
+                        <th>{{a.Modelo}}</th>
+                        <th>{{a.Stock}}</th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="tabla-ventas">
+        <h2 id="Titulo">Ventas realizadas hoy</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for nashe in VentasToday %}
+                <tr>
+                    <th>{{nashe.id}}</th>
+                    <th>{{nashe.Producto.Modelo}}</th>
+                    <th>{{nashe.Cantidad}}</th>
+                    <th>{{nashe.Fecha}}</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+{% else %}
+<script> window.location.href = '/Inicio/' </script>
+
+{% endif %}

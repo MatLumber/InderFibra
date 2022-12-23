@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.Container {
+    margin: 0 auto;
+    max-width: 1200px;
+    margin-top: 25px;
+}
+
+
+table {
+    border-collapse: collapse;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    font-family: 'Heebo', sans-serif;
+    box-shadow: 0px 0px 5px 2px rgba(230, 55, 128, 0.7);
+}
+
+table * {
+    position: relative;
+}
+
+table td,
+table th {
+    padding-left: 8px;
+}
+
+table thead tr {
+    height: 60px;
+    background: #E63780;
+    font-size: 16px;
+    color: white;
+}
+
+table tbody tr {
+    height: 48px;
+    border-bottom: 1px solid rgb(230, 55, 128);
+}
+
+table tbody tr:last-child {
+    border: none;
+}
+
+table td,
+table th {
+    text-align: left;
+}
+
+table td.l,
+table th.l {
+    text-align: right;
+}
+
+table td.c,
+table th.c {
+    text-align: center;
+}
+
+table td.r,
+table th.r {
+    text-align: center;
+}
+blockquote {
+    color: white;
+    text-align: center;
+}
+
+
+#btnModif{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #E63780;
+}
+
+#ModifTable th a{
+    text-decoration: none;
+    color: #E63780;
+}
+
+.fa-user-xmark{
+    color: #E63780!important;
+}
+
+#Titulo {
+    margin-top: 50px;
+    margin-bottom: 25px;
+    font-family: 'Fira Sans', sans-serif;
+    color: #E63780;
+    text-align: center;
+}
+
+.producto-vendido{
+    margin: 0 auto;
+    flex-direction: column;
+    width: 400px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Fira Sans', sans-serif;
+    color: white;
+    background-color: #E63780;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.container-productos{
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: repeat(2, 0.25fr);
+    width: 1200px;
+    justify-content: center;
+}
+
+#Titulo-productos{
+    font-family: 'Fira Sans', sans-serif;
+    color: #E63780;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.producto-stock{
+    margin: 0 auto;
+    flex-direction: column;
+    width: 500px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Fira Sans', sans-serif;
+    color: white;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #E63780;
+}
+
+.titulo-stock{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #E63780!important;
+}
+
+.lista-productos{
+    display: flex;
+    flex-direction: row;
+}
+
+.lista-productos h2{
+    font-weight: 400;
+}
+
+
+#font-invisible{
+    color: transparent;
+}
+
+.tabla-ventas{
+    color: #E63780!important;
+    margin-bottom: 100px;
+}
+
+#imgMoviles{
+    width: 30px;
+    height: 60px;
+}

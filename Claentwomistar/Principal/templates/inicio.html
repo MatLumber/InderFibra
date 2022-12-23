@@ -1,0 +1,57 @@
+{% extends "Componentes/header.html" %}
+{% load static %}
+{% block links%}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+</head>
+<body>
+    {% block content %}
+    <div class="main-header">
+        <h1>¡Ofertas de apertura!</h1>
+    </div>
+    <div class="img-header"></div>
+    <div class="productos-title">
+        <h1>Explora nuestros productos</h1>
+    </div>
+    <div class="productos-box">
+        <div class="card-productos">
+            <img src="../static/imgProductos/xiaomi-redmi-note10-5G_01_121x246.jpg">
+            <h2>Xiaomi Redmi Note 10 5G</h2>
+            <h2 id="stock">Stock: 10</h2>
+            <h2 id="price">$200.000</h2>
+            <button class="btnComprar">Comprar ahora</button>
+        </div>
+        <div class="card-productos">
+            <img src="../static/imgProductos/iphone13-pro-grafito_01_121x246.png">
+            <h2>iPhone 13 Pro Max</h2>
+            <h2 id="stock">Stock: 2</h2>
+            <h2 id="price">$400.000</h2>
+            <button class="btnComprar">Comprar ahora</button>
+        </div>
+        <div class="card-productos">
+            <img src="../static/imgProductos/galaxy-s21-fe-grey-sl_121x246.jpg">
+            <h2>Samsung Galaxy S21 FE</h2>
+            <h2 id="stock">Stock: 5</h2>
+            <h2 id="price">$500.000</h2>
+            <button class="btnComprar">Comprar ahora</button>
+        </div>
+        <div class="card-productos">
+            <img src="../static/imgProductos/xiaomi-12-5g-blue-01_121x246.jpg">
+            <h2>Xiaomi 12 5G</h2>
+            <h2 id="stock">Stock: 7</h2>
+            <h2 id="price">$260.000</h2>
+            <button class="btnComprar">Comprar ahora</button>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

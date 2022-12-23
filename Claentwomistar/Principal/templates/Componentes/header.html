@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    {% block links %}
+    {% endblock %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/c1366bcc7f.js" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'header.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title></head>
+
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <ul class="navbar-main">
+                    <li class="logo"><a href="/"><a>InderFibra</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="main-section"> 
+                        <a href="/">Inicio</a>
+                        <a href="/Productos/">Productos</a>
+                        {% if user.admin %}
+                        <a href="/admin/">Admin</a>
+                        {% endif %}
+                    </li>
+                    <li class="nav-login">
+                        <a href="/logout/">Cerrar sesión</a>        
+                    </li>
+                    {% else %}
+                    <li class="main-section"> 
+                        <a href="/">Inicio</a>
+                        <a href="/Productos/">Productos</a>
+                    </li>
+                    <li class="nav-login">
+                        <a href="/Login/">Iniciar sesión</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>
